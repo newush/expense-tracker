@@ -33,11 +33,16 @@ app.get('/', (req, res) => {
 })
 app.get('/edit/:id', (req, res) => {
   const id = req.params.id
-  return Record.findById(id)
+  Category.find()
     .lean()
-    .then((record) => res.render('edit', { record }))
-    .catch(error => console.error(error))
+    .then(categories => {
+      return Record.findById(id)
+        .lean()
+        .then((record) => res.render('edit', { record, categories }))
+        .catch(error => console.error(error))
+    })
 })
+
 app.get('/new', (req, res) => {
   Category.find()
     .lean()
