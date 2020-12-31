@@ -13,11 +13,9 @@
     <label for="category">類別*：</label>
     <select required id="category" class="form-control" name="category">
       <option value="">請選擇類型</option>
-      <option>家居物業</option>
-      <option>交通出行</option>
-      <option>休閒娛樂</option>
-      <option>餐飲食品</option>
-      <option>其他</option>
+      {{#each categories}}
+      <option value="{{this._id}}">{{this.name}}</option>
+      {{/each}}
     </select>
   </div>
   <div class="form-group">

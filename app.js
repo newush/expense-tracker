@@ -7,6 +7,7 @@ const db = mongoose.connection
 
 const exphbs = require('express-handlebars');
 
+const Category = require('./models/Category')
 const Record = require('./models/Record')
 const bodyParser = require('body-parser')
 const hbsHelpers = require('./helpers/hbs')
@@ -24,6 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.get('/', (req, res) => {
   Record.find()
     .lean()
+    .populate('category')
     .then(records => {
       res.render('index', { records })
     })
@@ -37,7 +39,11 @@ app.get('/edit/:id', (req, res) => {
     .catch(error => console.error(error))
 })
 app.get('/new', (req, res) => {
-  return res.render('new')
+  Category.find()
+    .lean()
+    .then(categories => {
+      return res.render('new', { categories })
+    })
 })
 app.post('/', (req, res) => {
   const name = req.body.name
