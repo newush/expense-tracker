@@ -1,11 +1,11 @@
 {
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.11.9"
   },
   "name": "expense-tracker",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
