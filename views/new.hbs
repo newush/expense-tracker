@@ -1,0 +1,33 @@
+<p>*必填欄位</p>
+<h2>請輸入你的支出</h2>
+<form action="/" method="POST">
+  <div class="form-group">
+    <label for="category">名稱*：</label>
+    <input class="form-control" type="text" placeholder="name" name="name">
+  </div>
+  <div class="form-group">
+    <label for="date-input">日期＊：</label>
+    <input class="form-control" type="date" value="2020-12-31" placeholder="date" name="date">
+  </div>
+  <div class="form-group">
+    <label for="category">類別*：</label>
+    <select required id="category" class="form-control" name="category">
+      <option value="">請選擇類型</option>
+      <option>家居物業</option>
+      <option>交通出行</option>
+      <option>休閒娛樂</option>
+      <option>餐飲食品</option>
+      <option>其他</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="date-input">金額＊：</label>
+    <input class="form-control" type="text" placeholder="amount" name="amount">
+  </div>
+  <div class="form-group justify-content-start">
+    <button type="submit" class="btn btn-info">新增支出</button>
+    <a href="/">
+      <button type="button" class="btn btn-warning ml-3">返回</button>
+    </a>
+  </div>
+</form>

@@ -8,6 +8,8 @@ const db = mongoose.connection
 const exphbs = require('express-handlebars');
 
 const Record = require('./models/Record')
+const bodyParser = require('body-parser')
+
 mongoose.connect('mongodb://localhost/expense-tracker', { useNewUrlParser: true, useUnifiedTopology: true })
 db.on('error', () => {
   console.log('mongodb error!')
@@ -18,7 +20,7 @@ db.once('open', () => {
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
-
+app.use(bodyParser.urlencoded({ extended: true }))
 app.get('/', (req, res) => {
   Record.find()
     .lean()
@@ -31,7 +33,16 @@ app.get('/edit/:id', (req, res) => {
   res.send(`This is edit page`)
 })
 app.get('/new', (req, res) => {
-  res.send(`This is new page`)
+  return res.render('new')
+})
+app.post('/', (req, res) => {
+  const name = req.body.name
+  const category = req.body.category
+  const date = req.body.date
+  const amount = req.body.amount
+  return Record.create({ name, category, date, amount })
+    .then(() => res.redirect('/'))
+    .catch(error => console.error(error))
 })
 app.listen(port, () => {
   console.log(`Express is running on http://localhost:${port}`)
