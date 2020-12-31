@@ -12,8 +12,13 @@ db.once('open', () => {
   console.log('mongodb connected!')
 })
 
+const exphbs = require('express-handlebars');
+
+app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.set('view engine', 'hbs')
+
 app.get('/', (req, res) => {
-  res.send(`This is my first Express Web App`)
+  res.render('index')
 })
 app.get('/edit/:id', (req, res) => {
   res.send(`This is edit page`)
