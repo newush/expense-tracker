@@ -1,4 +1,17 @@
-<h1>總金額：{{totalAmount}}</h1>
+<form>
+  <div class="form-group">
+    <select required id="category" class="form-control" name="category">
+      <option value="">全部類別</option>
+      {{#each categories}}
+      <option value="{{this._id}}">{{this.name}}</option>
+      {{/each}}
+    </select>
+  </div>
+</form>
+
+<div>
+  <h1>總金額：{{totalAmount}}</h1>
+</div>
 
 <ul>
   {{#each records}}

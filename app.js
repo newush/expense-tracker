@@ -24,15 +24,20 @@ app.set('view engine', 'hbs')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.get('/', (req, res) => {
   let totalAmount = 0
-  Record.find()
+  Category.find()
     .lean()
-    .populate('category')
-    .then(records => {
-      records.forEach(record => totalAmount += record.amount)
-      res.render('index', { records, totalAmount })
+    .then(categories => {
+      return Record.find()
+        .lean()
+        .populate('category')
+        .then(records => {
+          records.forEach(record => totalAmount += record.amount)
+          res.render('index', { records, categories, totalAmount })
+        })
+        .catch(error => console.error(error))
     })
-    .catch(error => console.error(error))
 })
+
 app.get('/edit/:id', (req, res) => {
   const id = req.params.id
   Category.find()
