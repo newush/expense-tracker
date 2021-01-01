@@ -25,7 +25,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.get('/', (req, res) => {
   let totalAmount = 0
   const category = req.query.category
-  // console.log('category', req.query.category)
   if (category === undefined || category === 'all') {
     Category.find()
       .lean()
