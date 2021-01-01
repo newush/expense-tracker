@@ -6,10 +6,11 @@ const Record = require('../../models/Record')
 router.get('/', (req, res) => {
   let totalAmount = 0
   const category = req.query.category
-  if (category === undefined || category === 'all') {
-    Category.find()
-      .lean()
-      .then(categories => {
+  Category.find()
+    .lean()
+    .then(categories => {
+      if (category === undefined || category === 'all') {
+
         return Record.find()
           .lean()
           .populate('category')
@@ -18,11 +19,7 @@ router.get('/', (req, res) => {
             res.render('index', { records, categories, totalAmount, category })
           })
           .catch(error => console.error(error))
-      })
-  } else {
-    Category.find()
-      .lean()
-      .then(categories => {
+      } else {
         return Record.find({
           category: req.query.category
         })
@@ -33,7 +30,7 @@ router.get('/', (req, res) => {
             res.render('index', { records, categories, totalAmount, category })
           })
           .catch(error => console.error(error))
-      })
-  }
+      }
+    })
 })
 module.exports = router
