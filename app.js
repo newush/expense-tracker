@@ -5,7 +5,7 @@ const port = 3000
 const mongoose = require('mongoose')
 const db = mongoose.connection
 
-const exphbs = require('express-handlebars');
+const exphbs = require('express-handlebars')
 
 const Category = require('./models/Category')
 const Record = require('./models/Record')
@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
           .lean()
           .populate('category')
           .then(records => {
-            records.forEach(record => totalAmount += record.amount)
+            records.forEach(record => { totalAmount += record.amount })
             res.render('index', { records, categories, totalAmount, category })
           })
           .catch(error => console.error(error))
@@ -43,12 +43,12 @@ app.get('/', (req, res) => {
       .lean()
       .then(categories => {
         return Record.find({
-          category: req.query.category,
+          category: req.query.category
         })
           .lean()
           .populate('category')
           .then(records => {
-            records.forEach(record => totalAmount += record.amount)
+            records.forEach(record => { totalAmount += record.amount })
             res.render('index', { records, categories, totalAmount, category })
           })
           .catch(error => console.error(error))

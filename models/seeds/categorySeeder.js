@@ -6,7 +6,6 @@ db.on('error', () => {
   console.log('mongodb error!')
 })
 db.once('open', () => {
-
   Category.create(
     {
       name: '餐飲食品',

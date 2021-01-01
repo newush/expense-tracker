@@ -41,7 +41,7 @@ db.once('open', () => {
           category: categories[4]._id,
           date: '12/31/2020',
           amount: 3000
-        },
+        }
       ).then(() => {
         console.log('done')
         db.close()
