@@ -1,10 +1,5 @@
-const mongoose = require('mongoose')
 const Category = require('../Category')
-mongoose.connect('mongodb://localhost/expense-tracker', { useNewUrlParser: true, useUnifiedTopology: true })
-const db = mongoose.connection
-db.on('error', () => {
-  console.log('mongodb error!')
-})
+const db = require('../../config/mongoose')
 db.once('open', () => {
   Category.create(
     {
