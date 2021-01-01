@@ -24,18 +24,37 @@ app.set('view engine', 'hbs')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.get('/', (req, res) => {
   let totalAmount = 0
-  Category.find()
-    .lean()
-    .then(categories => {
-      return Record.find()
-        .lean()
-        .populate('category')
-        .then(records => {
-          records.forEach(record => totalAmount += record.amount)
-          res.render('index', { records, categories, totalAmount })
+  const category = req.query.category
+  // console.log('category', req.query.category)
+  if (category === undefined || category === 'all') {
+    Category.find()
+      .lean()
+      .then(categories => {
+        return Record.find()
+          .lean()
+          .populate('category')
+          .then(records => {
+            records.forEach(record => totalAmount += record.amount)
+            res.render('index', { records, categories, totalAmount, category })
+          })
+          .catch(error => console.error(error))
+      })
+  } else {
+    Category.find()
+      .lean()
+      .then(categories => {
+        return Record.find({
+          category: req.query.category,
         })
-        .catch(error => console.error(error))
-    })
+          .lean()
+          .populate('category')
+          .then(records => {
+            records.forEach(record => totalAmount += record.amount)
+            res.render('index', { records, categories, totalAmount, category })
+          })
+          .catch(error => console.error(error))
+      })
+  }
 })
 
 app.get('/edit/:id', (req, res) => {
