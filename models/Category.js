@@ -5,6 +5,10 @@ const categorySchema = new Schema({
     type: String,
     required: true,
   },
+  icon: {
+    type: String,
+    requried: true
+  },
   records: [
     { type: Schema.Types.ObjectId, ref: 'Record' }
   ]

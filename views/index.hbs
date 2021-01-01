@@ -4,7 +4,7 @@
   {{#each records}}
   <li>
     {{this.name}}
-    {{this.category.name}}
+    <i class="fas {{this.category.icon}}"></i>
     {{this.date}}
     {{this.amount}}
     <a href="./edit/{{this._id}}">修改</a>
