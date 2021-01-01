@@ -11,6 +11,7 @@ const Category = require('./models/Category')
 const Record = require('./models/Record')
 const bodyParser = require('body-parser')
 const hbsHelpers = require('./helpers/hbs')
+const methodOverride = require('method-override')
 mongoose.connect('mongodb://localhost/expense-tracker', { useNewUrlParser: true, useUnifiedTopology: true })
 db.on('error', () => {
   console.log('mongodb error!')
@@ -22,6 +23,7 @@ db.once('open', () => {
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs', helpers: hbsHelpers }))
 app.set('view engine', 'hbs')
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 app.get('/', (req, res) => {
   let totalAmount = 0
   const category = req.query.category
@@ -84,7 +86,7 @@ app.post('/', (req, res) => {
     .then(() => res.redirect('/'))
     .catch(error => console.error(error))
 })
-app.post('/edit/:id', (req, res) => {
+app.put('/:id', (req, res) => {
   const id = req.params.id
   const name = req.body.name
   const category = req.body.category
@@ -101,7 +103,7 @@ app.post('/edit/:id', (req, res) => {
     .then(() => res.redirect('/'))
     .catch(error => console.error(error))
 })
-app.post('/delete/:id', (req, res) => {
+app.delete('/:id', (req, res) => {
   const id = req.params.id
   return Record.findById(id)
     .then(record => record.remove())

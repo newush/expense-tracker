@@ -1,6 +1,6 @@
 <p>*必填欄位</p>
 <h2>請修改你的支出</h2>
-<form action="/edit/{{ record._id }}" method="POST">
+<form action="/{{ record._id }}?_method=PUT" method="POST">
   <div class="form-group">
     <label for="category">名稱*：</label>
     <input required class="form-control" type="text" placeholder="name" name="name" value="{{ record.name }}">

@@ -15,31 +15,31 @@ db.once('open', () => {
         {
           name: '紅茶拿鐵',
           category: categories[0]._id,
-          date: '12/31/2020',
+          date: '2020-12-31',
           amount: 300
         },
         {
           name: '動物森友會遊戲片',
           category: categories[1]._id,
-          date: '12/31/2020',
+          date: '2020-12-31',
           amount: 600
         },
         {
           name: '英國機票',
           category: categories[2]._id,
-          date: '12/31/2020',
+          date: '2020-12-31',
           amount: 60000
         },
         {
           name: '鬼滅之刃漫畫',
           category: categories[3]._id,
-          date: '12/31/2020',
+          date: '2020-12-30',
           amount: 900
         },
         {
           name: '鋼筆',
           category: categories[4]._id,
-          date: '12/31/2020',
+          date: '2020-12-30',
           amount: 3000
         }
       ).then(() => {
