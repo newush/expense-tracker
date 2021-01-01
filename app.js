@@ -23,11 +23,13 @@ app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs', helpers: hbsH
 app.set('view engine', 'hbs')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.get('/', (req, res) => {
+  let totalAmount = 0
   Record.find()
     .lean()
     .populate('category')
     .then(records => {
-      res.render('index', { records })
+      records.forEach(record => totalAmount += record.amount)
+      res.render('index', { records, totalAmount })
     })
     .catch(error => console.error(error))
 })
