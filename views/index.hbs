@@ -1,4 +1,4 @@
-<div class="form-group">
+<div class="form-group col-8">
   <form action="/" method="GET">
     <select name="sort" id="category" class="form-control" name="category"
       onchange="document.location.href='/?category=' + this.value">
@@ -10,22 +10,27 @@
   </form>
 </div>
 
-<div>
-  <h1>總金額：{{totalAmount}}</h1>
+<div class="col-8 d-flex justify-content-between">
+  <h5 class="">總金額：</h5>
+  <h4 class="total-amount"><i class="fas fa-dollar-sign"></i>{{totalAmount}}</h4>
 </div>
-
-<ul>
+<div class="input-group d-flex justify-content-between mt-3 mb-3">
   {{#each records}}
-  <li>
-    {{this.name}}
-    <i class="fas {{this.category.icon}}"></i>
-    {{this.date}}
-    {{this.amount}}
-    <a href="./edit/{{this._id}}">修改</a>
+  <div class="input-group-text col-8 d-flex">
+    <i class="category-icon col-1 fas {{this.category.icon}}"></i>
+    <div class="d-flex flex-column align-items-start">
+      <h5 class="m-0 record-name">{{this.name}}</h5>
+      <p class="m-0 record-date">{{this.date}}</p>
+    </div>
+    <h5 class="record-amount ml-auto d-inline-flex p-2 m-0 align-items-center"><i
+        class="fas fa-dollar-sign"></i>{{this.amount}}</h5>
+  </div>
+  <div class="col-3 d-flex justify-content-around align-items-center">
+    <a class="btn btn-outline-info" href="./edit/{{this._id}}">修改</a>
     <form action="/{{this._id}}?_method=DELETE" method="POST" style="display: inline;"
       onsubmit="return confirm('Do you really want to delete {{this.name}} expense?')"><button
-        class="btn btn-danger btn-delete ml-1" type="submit">刪除</button></form>
-  </li>
+        class="btn btn-outline-danger" type="submit">刪除</button></form>
+  </div>
   {{/each}}
-</ul>
-<a href="./new">新增支出</a>
+</div>
+<a class="btn btn-info col-8" href="./new">新增支出</a>
