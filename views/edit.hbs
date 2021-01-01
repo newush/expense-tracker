@@ -3,11 +3,11 @@
 <form action="/edit/{{ record._id }}" method="POST">
   <div class="form-group">
     <label for="category">名稱*：</label>
-    <input class="form-control" type="text" placeholder="name" name="name" value="{{ record.name }}">
+    <input required class="form-control" type="text" placeholder="name" name="name" value="{{ record.name }}">
   </div>
   <div class="form-group">
     <label for="date-input">日期＊：</label>
-    <input class="form-control" type="date" value="{{record.date}}" placeholder="date" name="date">
+    <input required class="form-control" type="date" value="{{record.date}}" placeholder="date" name="date">
   </div>
   <div class="form-group">
     <label for="category">類別*：</label>
@@ -20,7 +20,7 @@
   </div>
   <div class="form-group">
     <label for="date-input">金額＊：</label>
-    <input class="form-control" type="text" placeholder="amount" name="amount" value="{{record.amount}}">
+    <input required class="form-control" type="text" placeholder="amount" name="amount" value="{{record.amount}}">
   </div>
   <div class="form-group justify-content-start">
     <button type="submit" class="btn btn-info">送出</button>
