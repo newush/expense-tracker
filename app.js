@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 require('./config/mongoose')
 
@@ -18,6 +18,6 @@ app.use(methodOverride('_method'))
 app.use(express.static('public'))
 app.use(routes)
 
-app.listen(port, () => {
-  console.log(`Express is running on http://localhost:${port}`)
+app.listen(PORT, () => {
+  console.log(`App is running on http://localhost:${port}`)
 })
