@@ -2,6 +2,9 @@
 
 A website application use Node.js + Express to log expenses.
 
+<img width="1005" alt="Screen Shot 2021-01-01 at 7 51 32 PM" src="https://user-images.githubusercontent.com/67764641/103448776-3daf2700-4c6c-11eb-8028-08be55e5529f.png">
+
+
 ## Summary
 
   - [Getting Started](#getting-started)
