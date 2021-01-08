@@ -35,19 +35,19 @@ A website application use Node.js + Express to log expenses.
 
 ### Installing
 1. Clone the repository
-```
+```shell
 $ git clone git@github.com:newush/expense-tracker.git
 ```
 2. Install local packages
-```
+```shell
 $ npm install
 ```
 3. Run seed
-```
+```shell
 $ npm run seed
 ```
 4. Run server and project
-```
+```shell
 $ npm run dev
 ```
 5. Open your browser `http://localhost/3000`
