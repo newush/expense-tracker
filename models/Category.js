@@ -7,7 +7,7 @@ const categorySchema = new Schema({
   },
   icon: {
     type: String,
-    requried: true
+    required: true
   },
   records: [
     { type: Schema.Types.ObjectId, ref: 'Record' }

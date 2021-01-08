@@ -17,7 +17,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(express.static('public'))
 app.use(routes)
-
+app.use((req, res) => {
+  res.render('error')
+})
 app.listen(port, () => {
   console.log(`App is running on http://localhost:${port}`)
 })
