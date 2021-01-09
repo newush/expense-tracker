@@ -19,7 +19,10 @@ router.get('/:id/edit', (req, res) => {
       return Record.findById(id)
         .lean()
         .then((record) => res.render('edit', { record, categories }))
-        .catch(error => console.error(error))
+        .catch(error => {
+          res.render('error')
+          console.error(error)
+        })
     })
 })
 
@@ -38,7 +41,10 @@ router.put('/:id/edit', (req, res) => {
       return record.save()
     })
     .then(() => res.redirect('/'))
-    .catch(error => console.error(error))
+    .catch(error => {
+      res.render('error')
+      console.error(error)
+    })
 })
 
 router.post('/', (req, res) => {
@@ -48,7 +54,10 @@ router.post('/', (req, res) => {
   const amount = req.body.amount
   return Record.create({ name, category, date, amount })
     .then(() => res.redirect('/'))
-    .catch(error => console.error(error))
+    .catch(error => {
+      res.render('error')
+      console.error(error)
+    })
 })
 
 router.delete('/:id/delete', (req, res) => {
@@ -56,6 +65,9 @@ router.delete('/:id/delete', (req, res) => {
   return Record.findById(id)
     .then(record => record.remove())
     .then(() => res.redirect('/'))
-    .catch(error => console.error(error))
+    .catch(error => {
+      res.render('error')
+      console.error(error)
+    })
 })
 module.exports = router
