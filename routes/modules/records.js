@@ -9,6 +9,10 @@ router.get('/new', (req, res) => {
     .then(categories => {
       return res.render('new', { categories })
     })
+    .catch(error => {
+      res.render('error')
+      console.error(error)
+    })
 })
 
 router.get('/:id/edit', (req, res) => {
