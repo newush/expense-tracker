@@ -35,12 +35,14 @@ router.put('/:id/edit', (req, res) => {
   const name = req.body.name
   const category = req.body.category
   const date = req.body.date
+  const merchant = req.body.merchant
   const amount = req.body.amount
   return Record.findById(id)
     .then(record => {
       record.name = name
       record.category = category
       record.date = date
+      record.merchant = merchant
       record.amount = amount
       return record.save()
     })
@@ -55,8 +57,9 @@ router.post('/', (req, res) => {
   const name = req.body.name
   const category = req.body.category
   const date = req.body.date
+  const merchant = req.body.merchant
   const amount = req.body.amount
-  return Record.create({ name, category, date, amount })
+  return Record.create({ name, category, date, merchant, amount })
     .then(() => res.redirect('/'))
     .catch(error => {
       res.render('error')
