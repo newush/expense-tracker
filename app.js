@@ -1,5 +1,6 @@
 const express = require('express')
 const session = require('express-session')
+const usePassport = require('./config/passport')
 const app = express()
 const port = process.env.PORT || 3000
 
@@ -22,6 +23,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }))
+usePassport(app)
 app.use(routes)
 app.use((req, res) => {
   res.render('error')
