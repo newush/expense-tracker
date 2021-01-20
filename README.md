@@ -30,13 +30,13 @@ A website application use Node.js + Express to log expenses.
 - Express v4.17.1
 - Express Handlebars v5.2.0
 - Express-Session v1.17.1
-- Mongoose: v5.11.9
-- Body-Parser: v1.19.0
-- Method-Override: v3.0.0
-- Passport: v0.4.1
-- Passport-Local: v1.0.0
+- Mongoose v5.11.9
+- Body-Parser v1.19.0
+- Method-Override v3.0.0
+- Passport v0.4.1
+- Passport-Local v1.0.0
 - Connect-Flash v0.1.1
-
+- bcrypt v2.4.3
 ### Installing
 1. Clone the repository
 ```shell
