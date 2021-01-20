@@ -2,7 +2,7 @@ const express = require('express')
 const session = require('express-session')
 const usePassport = require('./config/passport')
 const app = express()
-const port = process.env.PORT
+
 
 require('./config/mongoose')
 
@@ -16,6 +16,7 @@ const flash = require('connect-flash')
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
+const port = process.env.PORT
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs', helpers: hbsHelpers }))
 app.set('view engine', 'hbs')
 app.use(bodyParser.urlencoded({ extended: true }))
