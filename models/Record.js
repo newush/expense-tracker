@@ -20,6 +20,12 @@ const recordSchema = new Schema({
   amount: {
     type: Number,
     required: true
+  },
+  userId: {  // 加入user 與 record 資料關聯設定
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    index: true,
+    required: true
   }
 })
 module.exports = mongoose.model('Record', recordSchema)

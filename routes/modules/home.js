@@ -4,6 +4,7 @@ const Category = require('../../models/Category')
 const Record = require('../../models/Record')
 
 router.get('/', (req, res) => {
+  const userId = req.user._id
   let totalAmount = 0
   const category = req.query.category
   Category.find()
@@ -11,11 +12,12 @@ router.get('/', (req, res) => {
     .then(categories => {
       let records = null
       if (category === undefined || category === 'all') {
-        records = Record.find()
+        records = Record.find({ userId })
           .lean()
           .populate('category')
       } else {
         records = Record.find({
+          userId,
           category: req.query.category
         })
           .lean()

@@ -27,7 +27,7 @@
   </div>
   <div class="col-3 d-flex justify-content-around align-items-center">
     <a class="btn btn-outline-info" href="./records/{{this._id}}/edit">修改</a>
-    <form action="/records/{{this._id}}/delete/?_method=DELETE" method="POST" style="display: inline;"
+    <form action="/records/{{this._id}}/?_method=DELETE" method="POST" style="display: inline;"
       onsubmit="return confirm('Do you really want to delete {{this.name}} expense?')"><button
         class="btn btn-outline-danger" type="submit">刪除</button></form>
   </div>
