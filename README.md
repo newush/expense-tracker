@@ -26,15 +26,16 @@ A website application use Node.js + Express to log expenses.
 
 - npm v7.0.15
 - Node.js v15.4.0
-- nodemon v2.0.6
+- Nodemon v2.0.6
 - Express v4.17.1
 - Express Handlebars v5.2.0
 - Express-Session v1.17.1
 - Mongoose: v5.11.9
-- body-parser: v1.19.0
+- Body-Parser: v1.19.0
 - Method-Override: v3.0.0
 - Passport: v0.4.1
 - Passport-Local: v1.0.0
+- Connect-Flash v0.1.1
 
 ### Installing
 1. Clone the repository

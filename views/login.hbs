@@ -3,6 +3,7 @@
     <div class="card card-body">
       <h1 class="text-center mt-3">Login</h1>
       <form action="/users/login" method="POST">
+        {{>message}}
         <div class="form-group">
           <label for="email">Email</label>
           <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" required>
