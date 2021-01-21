@@ -1,8 +1,14 @@
+<script>
+  function updateOptions() {
+    const category = document.getElementById("category").value
+    const month = document.getElementById("month").value
+    document.location.href = '/?category=' + category + '&month=' + month
+  }
+</script>
 <div class="sorts col-8">
   <form class="d-flex d-flex-nowrap justify-content-start align-items-center mt-3 mb-3" action="/" method="GET">
     <div class="form-group mr-3">
-      <select name="sort" id="category" class="form-control" name="category"
-        onchange="document.location.href='/?category=' + this.value">
+      <select name="sort" id="category" class="form-control" name="category" onchange="updateOptions()">
         <option value="all" {{#ifeq category 'all' }} selected {{/ifeq}}>全部類別</option>
         {{#each categories}}
         <option value="{{this._id}}" {{#ifeq ../category this._id}} selected {{/ifeq}}>{{this.name}}</option>
@@ -11,9 +17,8 @@
     </div>
 
     <div class="form-group">
-      <select name="sort" id="month" class="form-control" name="month"
-        onchange="document.location.href='/?month=' + this.value">
-        <option value="all" {{#ifeq ../month 'all' }} selected {{/ifeq}}>請選擇月份</option>
+      <select name="sort" id="month" class="form-control" name="month" onchange="updateOptions()">
+        <option value="all" {{#ifeq ../month 'all' }} selected {{/ifeq}}>全部月份</option>
         <option value="1" {{#ifeq month '1' }} selected{{/ifeq}}>一月</option>
         <option value="2" {{#ifeq month '2' }} selected{{/ifeq}}>二月</option>
         <option value="3" {{#ifeq month '3' }} selected{{/ifeq}}>三月</option>
