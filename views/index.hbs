@@ -1,12 +1,33 @@
-<div class="form-group col-8">
-  <form action="/" method="GET">
-    <select name="sort" id="category" class="form-control" name="category"
-      onchange="document.location.href='/?category=' + this.value">
-      <option value="all" {{#ifeq category 'all' }} selected {{/ifeq}}>全部類別</option>
-      {{#each categories}}
-      <option value="{{this._id}}" {{#ifeq ../category this._id}} selected {{/ifeq}}>{{this.name}}</option>
-      {{/each}}
-    </select>
+<div class="sorts col-8">
+  <form class="d-flex d-flex-nowrap justify-content-start align-items-center mt-3 mb-3" action="/" method="GET">
+    <div class="form-group mr-3">
+      <select name="sort" id="category" class="form-control" name="category"
+        onchange="document.location.href='/?category=' + this.value">
+        <option value="all" {{#ifeq category 'all' }} selected {{/ifeq}}>全部類別</option>
+        {{#each categories}}
+        <option value="{{this._id}}" {{#ifeq ../category this._id}} selected {{/ifeq}}>{{this.name}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+    <div class="form-group">
+      <select name="sort" id="month" class="form-control" name="month"
+        onchange="document.location.href='/?month=' + this.value">
+        <option value="all" {{#ifeq ../month 'all' }} selected {{/ifeq}}>請選擇月份</option>
+        <option value="1" {{#ifeq month '1' }} selected{{/ifeq}}>一月</option>
+        <option value="2" {{#ifeq month '2' }} selected{{/ifeq}}>二月</option>
+        <option value="3" {{#ifeq month '3' }} selected{{/ifeq}}>三月</option>
+        <option value="4" {{#ifeq month '4' }} selected{{/ifeq}}>四月</option>
+        <option value="5" {{#ifeq month '5' }} selected{{/ifeq}}>五月</option>
+        <option value="6" {{#ifeq month '6' }} selected{{/ifeq}}>六月</option>
+        <option value="7" {{#ifeq month '7' }} selected{{/ifeq}}>七月</option>
+        <option value="8" {{#ifeq month '8' }} selected{{/ifeq}}>八月</option>
+        <option value="9" {{#ifeq month '9' }} selected{{/ifeq}}>九月</option>
+        <option value="10" {{#ifeq month '10' }} selected{{/ifeq}}>十月</option>
+        <option value="11" {{#ifeq month '11' }} selected{{/ifeq}}>十一月</option>
+        <option value="12" {{#ifeq month '12' }} selected{{/ifeq}}>十二月</option>
+      </select>
+    </div>
   </form>
 </div>
 
