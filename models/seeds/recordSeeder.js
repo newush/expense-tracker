@@ -31,7 +31,7 @@ db.once('open', () => {
             {
               name: '紅茶拿鐵',
               category: categories[0]._id,
-              date: '2020-12-31',
+              date: new Date('2020-12-31'),
               merchant: '五十嵐',
               amount: 300,
               userId
@@ -39,7 +39,7 @@ db.once('open', () => {
             {
               name: '動物森友會遊戲片',
               category: categories[1]._id,
-              date: '2020-12-31',
+              date: new Date('2020-12-31'),
               merchant: 'Nintendo',
               amount: 600,
               userId
@@ -47,7 +47,7 @@ db.once('open', () => {
             {
               name: '英國機票',
               category: categories[2]._id,
-              date: '2020-12-31',
+              date: new Date('2020-12-31'),
               merchant: 'Friend',
               amount: 60000,
               userId
@@ -55,7 +55,7 @@ db.once('open', () => {
             {
               name: '鬼滅之刃漫畫',
               category: categories[3]._id,
-              date: '2020-12-30',
+              date: new Date('2020-12-31'),
               merchant: '捷比',
               amount: 900,
               userId
@@ -63,7 +63,7 @@ db.once('open', () => {
             {
               name: '鋼筆',
               category: categories[4]._id,
-              date: '2020-12-30',
+              date: new Date('2020-12-31'),
               merchant: '誠品',
               amount: 3000,
               userId

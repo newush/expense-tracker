@@ -37,6 +37,7 @@ A website application use Node.js + Express to log expenses.
 - Passport-Local v1.0.0
 - Connect-Flash v0.1.1
 - bcrypt v2.4.3
+
 ### Installing
 1. Clone the repository
 ```shell

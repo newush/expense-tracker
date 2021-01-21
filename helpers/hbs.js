@@ -4,5 +4,8 @@ module.exports = {
       return options.fn(this)
     }
     return options.inverse(this)
+  },
+  formatDate: function (datetime) {
+    return datetime.toLocaleDateString("en-US")
   }
 }
