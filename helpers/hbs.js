@@ -7,5 +7,8 @@ module.exports = {
   },
   formatDate: function (datetime) {
     return datetime.toLocaleDateString('en-US')
+  },
+  convertDate: function (date) {
+    return date.toISOString().split('T')[0];
   }
 }
