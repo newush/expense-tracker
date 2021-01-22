@@ -3,7 +3,6 @@ const session = require('express-session')
 const usePassport = require('./config/passport')
 const app = express()
 
-
 require('./config/mongoose')
 
 const exphbs = require('express-handlebars')

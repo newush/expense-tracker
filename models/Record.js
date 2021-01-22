@@ -21,7 +21,7 @@ const recordSchema = new Schema({
     type: Number,
     required: true
   },
-  userId: {  // 加入user 與 record 資料關聯設定
+  userId: {
     type: Schema.Types.ObjectId,
     ref: 'User',
     index: true,

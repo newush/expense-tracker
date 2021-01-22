@@ -6,6 +6,6 @@ module.exports = {
     return options.inverse(this)
   },
   formatDate: function (datetime) {
-    return datetime.toLocaleDateString("en-US")
+    return datetime.toLocaleDateString('en-US')
   }
 }
