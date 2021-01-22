@@ -20,7 +20,9 @@ A website application use Node.js + Express to log expenses.
 - The user can add a expense information
 - The user can edit a expense information
 - The user can delete a expense
-- The user can filter expenses by category
+- The user can filter expenses by category and month
+- The user can register an account
+- The user can use Facebook account to login
 
 ### Prerequisites
 
@@ -57,9 +59,14 @@ $ npm run dev
 ```
 5. Open your browser `http://localhost/3000`
 
+6. User information to login
+user: user1@example.com
+password: 123
+
 ### Versioning
 Based on Alpha Camp semester 2-3 A12
-v.0
+Based o Alpha Camp semester 3 A3
+v.1.0
 
 ### Contributor
 
