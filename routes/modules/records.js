@@ -23,7 +23,13 @@ router.get('/:id/edit', (req, res) => {
     .then(categories => {
       return Record.findOne({ _id, userId })
         .lean()
-        .then((record) => res.render('edit', { record, categories }))
+        .then((record) => {
+          function convertDate(date) {
+            return date.toISOString().split('T')[0];
+          }
+          record.date = convertDate(record.date)
+          res.render('edit', { record, categories })
+        })
         .catch(error => {
           res.render('error')
           console.error(error)
