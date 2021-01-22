@@ -31,7 +31,7 @@ db.once('open', () => {
             {
               name: '紅茶拿鐵',
               category: categories[0]._id,
-              date: new Date('2020-12-31'),
+              date: new Date('2020-01-31'),
               merchant: '五十嵐',
               amount: 300,
               userId
@@ -47,7 +47,7 @@ db.once('open', () => {
             {
               name: '英國機票',
               category: categories[2]._id,
-              date: new Date('2020-12-31'),
+              date: new Date('2020-10-31'),
               merchant: 'Friend',
               amount: 60000,
               userId
@@ -55,7 +55,7 @@ db.once('open', () => {
             {
               name: '鬼滅之刃漫畫',
               category: categories[3]._id,
-              date: new Date('2020-12-31'),
+              date: new Date('2020-11-30'),
               merchant: '捷比',
               amount: 900,
               userId
